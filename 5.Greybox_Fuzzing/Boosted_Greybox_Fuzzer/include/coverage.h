@@ -11,8 +11,10 @@ typedef struct gcov_sources{	// source specific gcov info
 	char* bitmap;
 	char* branch_bitmap;
 	int gcov_line;
-	int gcov_line_for_ratio;
-	int gcov_line_for_branch;
+	//int gcov_line_for_ratio;
+	//int gcov_line_for_branch;
+	int tot_lines;
+	int tot_branches;
 
 	unsigned short hash_table[65546];
 } gcov_src_t;  
