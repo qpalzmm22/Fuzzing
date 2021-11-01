@@ -3,11 +3,12 @@
 //#define DEBUG
 
 int 
-get_gcov_line(char* c_file, int* gcov_line_for_ratio, int* gcov_line_for_branch){
+get_gcov_line(char* c_file, int* tot_lines, int* tot_branches){
 	char gcov_file[64];
 	strcpy(gcov_file, c_file);
 	strcat(gcov_file, ".gcov");
 
+	printf("%s\n", c_file);
 	FILE* fp;
 	fp = fopen(gcov_file, "rb");
 	if(fp == NULL){
@@ -22,13 +23,13 @@ get_gcov_line(char* c_file, int* gcov_line_for_ratio, int* gcov_line_for_branch)
 
 	while((ret = getline(&line, &size, fp)) != -1){
 		if(strstr(line, "branch") != NULL){
-			*gcov_line_for_branch = (*gcov_line_for_branch) + 1;
+			*tot_branches = (*tot_branches) + 1;
 		}
 		char* ptr = strtok(line, ":");
 		int flag = 0;
 		while(ptr != NULL){
 			if((flag == 0 && atoi(ptr) > 0 ) || (flag == 0 && strstr(ptr, "#") != NULL)){
-				*gcov_line_for_ratio = (*gcov_line_for_ratio) + 1;		
+				*tot_lines = (*tot_lines) + 1;		
 			}
 
 			ptr = strtok(NULL, ":");

@@ -1,0 +1,2 @@
+libgcov profiling error:/home/qpalzmm22/mj/Fuzzing/5.Greybox_Fuzzing/Boosted_Greybox_Fuzzer/test/cJSON.gcda:overwriting an existing profile data with a different timestamp
+libgcov profiling error:/home/qpalzmm22/mj/Fuzzing/5.Greybox_Fuzzing/Boosted_Greybox_Fuzzer/test/testCJSON.gcda:overwriting an existing profile data with a different timestamp
